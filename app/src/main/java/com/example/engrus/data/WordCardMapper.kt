@@ -1,6 +1,7 @@
 package com.example.engrus.data
 
 import com.example.engrus.domain.entities.WordCard
+import kotlinx.coroutines.flow.Flow
 
 class WordCardMapper {
 
@@ -15,20 +16,22 @@ class WordCardMapper {
         )
     }
 
-    fun wordCardFromDbToDomain(wordCardDbModel: WordCardDbModel): WordCard {
-        return WordCard(
-            id = wordCardDbModel.id,
-            word = wordCardDbModel.word,
-            translation = wordCardDbModel.translation,
-            insertTime = wordCardDbModel.insertTime,
-            attempts = wordCardDbModel.attempts,
-            successfulAttempts = wordCardDbModel.successfulAttempts
-        )
+    fun wordCardFromDbToDomain(wordCardDbModel: WordCardDbModel?): WordCard? {
+        return wordCardDbModel?.let {
+            WordCard(
+                id = wordCardDbModel.id,
+                word = wordCardDbModel.word,
+                translation = wordCardDbModel.translation,
+                insertTime = wordCardDbModel.insertTime,
+                attempts = wordCardDbModel.attempts,
+                successfulAttempts = wordCardDbModel.successfulAttempts)
+
+        }
     }
 
-    fun mapListDbModelToListEntity(list: List<WordCardDbModel>) = list.map {
-        wordCardFromDbToDomain(it)
-    }
+//    fun mapListDbModelToListEntity(list: Flow<List<WordCardDbModel>>) = list.map {
+//        wordCardFromDbToDomain(it)
+//    }
 
 
 }

@@ -11,7 +11,7 @@ interface WordCardRepository {
 
     fun editWordCard(wordCard: WordCard)
 
-    fun getWordCardById(wordCardId: Long): WordCard
+    fun getWordCardById(wordCardId: Long): WordCard?
 
     fun getWordCardsList(): Flow<List<WordCard>>
 

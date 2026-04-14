@@ -21,8 +21,8 @@ interface WordCardDao {
     fun editWordCard(wordCard: WordCard)
 
     @Query("SELECT * FROM table_of_word_cards WHERE id = :wordCardId LIMIT 1")
-    fun getWordCardById(wordCardId: Long): WordCard?
+    fun getWordCardById(wordCardId: Long): WordCardDbModel?
 
     @Query("SELECT * FROM table_of_word_cards ORDER BY successfulAttempts DESC")
-    fun getWordCardsList(): Flow<List<WordCard>>
+    fun getWordCardsList(): Flow<List<WordCardDbModel>>
 }
