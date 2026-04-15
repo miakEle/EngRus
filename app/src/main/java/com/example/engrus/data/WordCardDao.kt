@@ -12,13 +12,13 @@ import kotlinx.coroutines.flow.Flow
 interface WordCardDao {
 
     @Insert
-    fun addWordCard(wordCard: WordCard)
+    fun addWordCard(wordCard: WordCardDbModel)
 
     @Delete
-    fun deleteWordCard(wordCard: WordCard)
+    fun deleteWordCard(wordCard: WordCardDbModel)
 
     @Update
-    fun editWordCard(wordCard: WordCard)
+    fun editWordCard(wordCard: WordCardDbModel)
 
     @Query("SELECT * FROM table_of_word_cards WHERE id = :wordCardId LIMIT 1")
     fun getWordCardById(wordCardId: Long): WordCardDbModel?

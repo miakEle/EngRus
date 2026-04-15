@@ -11,15 +11,15 @@ class WordCardRepositoryImp (
     ): WordCardRepository {
 
     override fun addWordCard(wordCard: WordCard) {
-        dao.addWordCard(wordCard)
+        dao.addWordCard(mapper.wordCardFromDomainToDB(wordCard))
     }
 
     override fun deleteWordCard(wordCard: WordCard) {
-        dao.deleteWordCard(wordCard)
+        dao.deleteWordCard(mapper.wordCardFromDomainToDB(wordCard))
     }
 
     override fun editWordCard(wordCard: WordCard) {
-        dao.editWordCard(wordCard)
+        dao.editWordCard(mapper.wordCardFromDomainToDB(wordCard))
     }
 
     override fun getWordCardById(wordCardId: Long): WordCard? {

@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("com.google.devtools.ksp") version "1.9.23-1.0.19"
+    id("kotlin-kapt")
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -28,17 +29,22 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 }
 
 
 dependencies {
 
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
+    implementation(libs.dagger.android)
+    implementation(libs.dagger.android.support)
+    kapt(libs.dagger.android.processor)
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
