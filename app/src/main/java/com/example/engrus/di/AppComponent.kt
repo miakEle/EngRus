@@ -5,7 +5,7 @@ import com.example.engrus.presentation.MainActivity
 import dagger.BindsInstance
 import dagger.Component
 
-@Component(modules = [DataModule::class])
+@Component(modules = [DataModule::class, DomainModule::class])
 interface AppComponent {
 
     fun inject(mainActivity: MainActivity)

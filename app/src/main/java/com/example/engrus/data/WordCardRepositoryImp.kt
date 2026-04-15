@@ -4,8 +4,9 @@ import com.example.engrus.domain.entities.WordCard
 import com.example.engrus.domain.repository.WordCardRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class WordCardRepositoryImp (
+class WordCardRepositoryImp @Inject constructor(
     private val dao: WordCardDao,
     private  val mapper: WordCardMapper
     ): WordCardRepository {

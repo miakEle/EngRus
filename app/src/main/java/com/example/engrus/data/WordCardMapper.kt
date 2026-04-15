@@ -2,8 +2,9 @@ package com.example.engrus.data
 
 import com.example.engrus.domain.entities.WordCard
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class WordCardMapper {
+class WordCardMapper @Inject constructor(){
 
     fun wordCardFromDomainToDB(wordCard: WordCard): WordCardDbModel {
         return WordCardDbModel(
