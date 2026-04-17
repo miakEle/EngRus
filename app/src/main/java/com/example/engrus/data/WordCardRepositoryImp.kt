@@ -1,5 +1,6 @@
 package com.example.engrus.data
 
+import android.util.Log
 import com.example.engrus.domain.entities.WordCard
 import com.example.engrus.domain.repository.WordCardRepository
 import kotlinx.coroutines.flow.Flow
@@ -11,19 +12,20 @@ class WordCardRepositoryImp @Inject constructor(
     private  val mapper: WordCardMapper
     ): WordCardRepository {
 
-    override fun addWordCard(wordCard: WordCard) {
+    override suspend fun addWordCard(wordCard: WordCard) {
+        Log.d("DB_TEST", "Adding: $wordCard")
         dao.addWordCard(mapper.wordCardFromDomainToDB(wordCard))
     }
 
-    override fun deleteWordCard(wordCard: WordCard) {
+    override suspend fun deleteWordCard(wordCard: WordCard) {
         dao.deleteWordCard(mapper.wordCardFromDomainToDB(wordCard))
     }
 
-    override fun editWordCard(wordCard: WordCard) {
+    override suspend fun editWordCard(wordCard: WordCard) {
         dao.editWordCard(mapper.wordCardFromDomainToDB(wordCard))
     }
 
-    override fun getWordCardById(wordCardId: Long): WordCard? {
+    override suspend fun getWordCardById(wordCardId: Long): WordCard? {
         return mapper.wordCardFromDbToDomain(dao.getWordCardById(wordCardId))
     }
 

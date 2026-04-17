@@ -14,6 +14,7 @@
         android:layout_margin="8dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiwordtext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="WORD"/>
@@ -31,6 +32,7 @@
         android:layout_margin="8dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/titransaltetext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="TRANSLATE" />
@@ -39,6 +41,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:id="@+id/savebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:layout_constraintEnd_toEndOf="parent"

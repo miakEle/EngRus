@@ -43,6 +43,8 @@ android {
 
 
 dependencies {
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
 
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)

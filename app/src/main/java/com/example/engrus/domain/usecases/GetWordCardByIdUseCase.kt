@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 class GetWordCardByIdUseCase @Inject constructor(private val wordCardRepository: WordCardRepository) {
 
-    operator fun invoke(wordCardId: Long){
+    suspend operator fun invoke(wordCardId: Long){
         wordCardRepository.getWordCardById(wordCardId)
     }
 }

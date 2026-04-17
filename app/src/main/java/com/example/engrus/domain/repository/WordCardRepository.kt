@@ -5,13 +5,13 @@ import kotlinx.coroutines.flow.Flow
 
 interface WordCardRepository {
 
-    fun addWordCard(wordCard: WordCard)
+    suspend fun addWordCard(wordCard: WordCard)
 
-    fun deleteWordCard(wordCard: WordCard)
+    suspend fun deleteWordCard(wordCard: WordCard)
 
-    fun editWordCard(wordCard: WordCard)
+    suspend fun editWordCard(wordCard: WordCard)
 
-    fun getWordCardById(wordCardId: Long): WordCard?
+    suspend fun getWordCardById(wordCardId: Long): WordCard?
 
     fun getWordCardsList(): Flow<List<WordCard>>
 
