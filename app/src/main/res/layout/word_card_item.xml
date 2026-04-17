@@ -19,17 +19,20 @@
             android:layout_marginStart="5dp">
 
             <TextView
+                android:id="@+id/tvword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tool:text="essue"/>
 
             <TextView
+                android:id="@+id/tvtranslate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tool:text="проблема"/>
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tvprogress"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
