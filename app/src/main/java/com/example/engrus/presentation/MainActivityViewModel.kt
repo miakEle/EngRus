@@ -1,5 +1,6 @@
 package com.example.engrus.presentation
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.engrus.domain.usecases.GetWordCardsListUseCase
@@ -15,6 +16,7 @@ class MainActivityViewModel @Inject constructor(
 
     val listOfWordCards = getWordCardsListUseCase.invoke()
         .map { list ->
+            Log.d("TEST", "Domain list size = ${list.size}")
             list
                 .map { uiMapperDomainToUi.map(it) }
                 .sortedByDescending { card ->

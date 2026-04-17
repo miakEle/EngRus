@@ -20,7 +20,7 @@ class AddScreenViewModel @Inject constructor(
     fun addWord(word: String, translation: String) {
         if (word.isBlank() || translation.isBlank()) return
         viewModelScope.launch {
-            addUseCase(WordCard(0, word, translation, LocalDateTime.now(),0, 0))
+            addUseCase(WordCard(0, word, translation, LocalDateTime.now(),2, 1))
             getWordCardsListUseCase
         }
     }

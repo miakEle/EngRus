@@ -3,6 +3,7 @@ package com.example.engrus.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.engrus.presentation.AddScreenViewModel
+import com.example.engrus.presentation.MainActivityViewModel
 import com.example.engrus.presentation.ViewModelFactory
 import dagger.Binds
 import dagger.Module
@@ -18,5 +19,10 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(AddScreenViewModel::class)
     abstract fun bindAddScreenViewModel(vm: AddScreenViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MainActivityViewModel::class)
+    abstract fun bindMainActivityViewModel(vm: MainActivityViewModel): ViewModel
 }
 

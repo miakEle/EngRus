@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.engrus.WordCardApplication
 import com.example.engrus.databinding.ActivityMainBinding
 import kotlinx.coroutines.coroutineScope
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView(){
+        binding.rvwordcards.layoutManager = LinearLayoutManager(this)
         binding.rvwordcards.adapter = adapter
     }
 
