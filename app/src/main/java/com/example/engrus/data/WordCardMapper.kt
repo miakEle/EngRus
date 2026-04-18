@@ -12,6 +12,7 @@ class WordCardMapper @Inject constructor(){
             word = wordCard.word,
             translation = wordCard.translation,
             insertTime = wordCard.insertTime,
+            nextReviewTime = wordCard.nextReviewTime,
             attempts = wordCard.attempts,
             successfulAttempts = wordCard.successfulAttempts
         )
@@ -24,6 +25,7 @@ class WordCardMapper @Inject constructor(){
                 word = wordCardDbModel.word,
                 translation = wordCardDbModel.translation,
                 insertTime = wordCardDbModel.insertTime,
+                nextReviewTime = wordCardDbModel.nextReviewTime,
                 attempts = wordCardDbModel.attempts,
                 successfulAttempts = wordCardDbModel.successfulAttempts)
 

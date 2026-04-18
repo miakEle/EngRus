@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 interface WordCardDao {
 
     @Insert
-    suspend fun addWordCard(wordCard: WordCardDbModel)
+    suspend fun addWordCard(wordCard: WordCardDbModel): Long
 
     @Delete
     suspend fun deleteWordCard(wordCard: WordCardDbModel)

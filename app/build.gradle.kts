@@ -43,6 +43,7 @@ android {
 
 
 dependencies {
+    implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
 

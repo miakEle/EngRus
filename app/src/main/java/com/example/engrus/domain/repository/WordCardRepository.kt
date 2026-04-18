@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface WordCardRepository {
 
-    suspend fun addWordCard(wordCard: WordCard)
+    suspend fun addWordCard(wordCard: WordCard): Long
 
     suspend fun deleteWordCard(wordCard: WordCard)
 

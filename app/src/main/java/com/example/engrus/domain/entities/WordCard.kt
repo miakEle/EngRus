@@ -8,6 +8,7 @@ data class WordCard(
     val word: String,
     val translation: String,
     val insertTime: LocalDateTime,
+    val nextReviewTime: LocalDateTime,
     val attempts: Int,
     val successfulAttempts: Int
 ) {

@@ -12,9 +12,9 @@ class WordCardRepositoryImp @Inject constructor(
     private  val mapper: WordCardMapper
     ): WordCardRepository {
 
-    override suspend fun addWordCard(wordCard: WordCard) {
+    override suspend fun addWordCard(wordCard: WordCard): Long {
         Log.d("DB_TEST", "Adding: $wordCard")
-        dao.addWordCard(mapper.wordCardFromDomainToDB(wordCard))
+        return dao.addWordCard(mapper.wordCardFromDomainToDB(wordCard))
     }
 
     override suspend fun deleteWordCard(wordCard: WordCard) {

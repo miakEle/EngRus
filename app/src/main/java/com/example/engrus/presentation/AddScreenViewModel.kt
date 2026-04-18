@@ -1,5 +1,6 @@
 package com.example.engrus.presentation
 
+import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
@@ -12,6 +13,7 @@ import java.time.LocalDateTime
 import javax.inject.Inject
 
 class AddScreenViewModel @Inject constructor(
+    private val context: Context,
     private val addUseCase: AddWordCardUseCase,
     private val getWordCardsListUseCase: GetWordCardsListUseCase
 ): ViewModel(){
@@ -20,7 +22,8 @@ class AddScreenViewModel @Inject constructor(
     fun addWord(word: String, translation: String) {
         if (word.isBlank() || translation.isBlank()) return
         viewModelScope.launch {
-            addUseCase(WordCard(0, word, translation, LocalDateTime.now(),2, 1))
+            val id = addUseCase(WordCard(0, word, translation, LocalDateTime.now(), LocalDateTime.now().plusMinutes(20),0, 0))
+            WordCardWorker.scheduleFirst(context, id)
             getWordCardsListUseCase
         }
     }

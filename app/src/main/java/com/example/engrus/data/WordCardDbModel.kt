@@ -11,7 +11,8 @@ data class WordCardDbModel(
     val id: Long = 0, //id is not defined
     val word: String,
     val translation: String,
-    val insertTime: LocalDateTime,// room 2,5+ -> LocalDate by TypeConverter
+    val insertTime: LocalDateTime,
+    val nextReviewTime: LocalDateTime,// room 2,5+ -> LocalDate by TypeConverter
     val attempts: Int,
     val successfulAttempts: Int
 )

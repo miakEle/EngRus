@@ -6,8 +6,8 @@ import javax.inject.Inject
 
 class AddWordCardUseCase @Inject constructor(private val wordCardRepository: WordCardRepository){
 
-    suspend operator fun invoke(wordCard: WordCard){
-        wordCardRepository.addWordCard(wordCard)
+    suspend operator fun invoke(wordCard: WordCard): Long{
+        return wordCardRepository.addWordCard(wordCard)
     }
 
 }
