@@ -6,7 +6,9 @@ import com.example.engrus.common.minutes
 
 object ReviewDelays {
     val delays = listOf(
-        20.minutes,   // 0 from min to ms
+        20.minutes,
+        1.hours,
+        3.hours,// 0 from min to ms
         8.hours,      // 1 from hour to ms
         24.hours,     // 2
         3.days,       // 3 from day to ms

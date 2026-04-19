@@ -35,4 +35,5 @@ class AddScreenActivity: AppCompatActivity() {
             finish()
         }
     }
+
 }
