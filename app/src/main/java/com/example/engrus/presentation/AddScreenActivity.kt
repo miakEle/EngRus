@@ -2,6 +2,7 @@ package com.example.engrus.presentation
 
 import android.os.Build
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +31,8 @@ class AddScreenActivity: AppCompatActivity() {
         setContentView(binding.root)
         binding.savebutton.setOnClickListener {
             viewModel.addWord(binding.tiwordtext.text.toString(), binding.titransaltetext.text.toString())
+            Toast.makeText(this,"Success", Toast.LENGTH_SHORT).show()
+            finish()
         }
     }
 }
