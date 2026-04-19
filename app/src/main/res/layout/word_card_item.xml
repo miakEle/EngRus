@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:backgroundTint="@color/material_dynamic_tertiary90"
-    android:padding="10dp"
+    android:layout_margin="10dp"
     xmlns:tool="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="8dp">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -22,13 +23,15 @@
                 android:id="@+id/tvword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tool:text="essue"/>
+                tool:text="essue"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/tvtranslate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tool:text="проблема"/>
+                tool:text="проблема"
+                android:textColor="@color/black"/>
         </LinearLayout>
 
         <TextView
@@ -39,7 +42,8 @@
             android:layout_marginEnd="5dp"
             android:layout_gravity="center"
             android:gravity="center"
-            tool:text="1/5"/>
+            tool:text="1/5"
+            android:textColor="@color/black"/>
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>
