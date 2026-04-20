@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.engrus.databinding.WordCardItemBinding
+import com.example.engrus.domain.entities.WordCard
 
 class WordCardAdapter : ListAdapter<WordCardUi, WordCardViewHolder>(WordCardDiffCallBack()) {
+
+    var onShopItemClickListener: ((WordCardUi) -> Unit)? = null
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -25,7 +28,11 @@ class WordCardAdapter : ListAdapter<WordCardUi, WordCardViewHolder>(WordCardDiff
         position: Int
     ) {
         val item = getItem(position)
-        Log.d("TEST", "UI item: id=${item.id}, word=${item.word}")
+        val binding = holder.binding
+
         holder.bind(getItem(position))
+        binding.root.setOnClickListener {
+            onShopItemClickListener?.invoke(item)
+        }
     }
 }

@@ -11,9 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.engrus.WordCardApplication
 import com.example.engrus.databinding.ActivityMainBinding
-import kotlinx.coroutines.coroutineScope
 import javax.inject.Inject
-import kotlin.collections.get
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private val viewModel by lazy(){
+    private val viewModel by lazy() {
         ViewModelProvider(this, viewModelFactory)[MainActivityViewModel::class.java]
     }
 
@@ -35,25 +33,26 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupClickListener()
         setupRecyclerView()
         observeWordCardsList()
         setupSwipeListener(binding.rvwordcards)
 
         binding.floatingActionButton.setOnClickListener {
-            val intent = Intent(this, AddScreenActivity::class.java)
+            val intent = AddScreenActivity.newIntentAdd(this)
             startActivity(intent)
         }
 
     }
 
-    private fun setupRecyclerView(){
+    private fun setupRecyclerView() {
         binding.rvwordcards.layoutManager = LinearLayoutManager(this)
         binding.rvwordcards.adapter = adapter
     }
 
-    private fun observeWordCardsList(){
+    private fun observeWordCardsList() {
         lifecycleScope.launchWhenCreated {
-            viewModel.listOfWordCards.collect { list->
+            viewModel.listOfWordCards.collect { list ->
                 adapter.submitList(list)
             }
         }
@@ -80,6 +79,14 @@ class MainActivity : AppCompatActivity() {
         }
         val itemTouchHelper = ItemTouchHelper(callback)
         itemTouchHelper.attachToRecyclerView(rvShopList)
+    }
+
+    private fun setupClickListener() {
+        adapter.onShopItemClickListener = {
+            val intent = AddScreenActivity.newIntentEdit(this, it.id)
+            startActivity(intent)
+
+        }
     }
 
 
